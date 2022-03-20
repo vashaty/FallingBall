@@ -4,18 +4,25 @@
 #include <QTimer>
 #include <QWidget>
 #include <QPainter>
+#include "basket.h"
 
 class Ball : public QTimer
 {
 public:
     Ball(QWidget *parent);
     void draw(QPainter *painter);
+    void setBasket(Basket *basket);
+    int x, y, kx, ky;
+    bool isOut = false;
+    bool catched = false;
 
 protected:
     virtual void timerEvent(QTimerEvent *e) override;
 
-    int x, y, kx, ky;
     QWidget *parent;
+
+private:
+    Basket *basket;
 };
 
 #endif // BALL_H

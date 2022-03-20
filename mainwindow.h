@@ -6,6 +6,7 @@
 #include "ball.h"
 #include <memory>
 #include <QTimer>
+#include "basket.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -23,18 +24,16 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) override;
     QTimer timer;
+    QTimer timer2;
 
 private slots:
-    void on_actionAdd_triggered();
-
-    void on_actionRemove_triggered();
-
-    void on_actionClear_triggered();
     void onTimer();
+    void onTimer2();
 
 private:
     Ui::MainWindow *ui;
     QList<std::shared_ptr<Ball>> balls;
+    Basket *basket = new Basket(this);
     void newBall();
 
     void removeBall();

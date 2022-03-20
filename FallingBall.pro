@@ -10,11 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     ball.cpp \
+    basket.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     ball.h \
+    basket.h \
     mainwindow.h
 
 FORMS += \

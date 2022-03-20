@@ -19,12 +19,17 @@ void Ball::draw(QPainter *painter)
     painter->drawEllipse(x,y,20,20);
 }
 
+void Ball::setBasket(Basket *basket)
+{
+    this->basket = basket;
+}
+
 void Ball::timerEvent(QTimerEvent *e)
 {
     QRect rect = parent->rect();
     if(x<0 || x > rect.width()) kx *= -1;
 
-//    if(y<0 || y > rect.height()) ky *= -1;
+    if(y == rect.height()) isOut = true;
 
     x+=kx;
     y+=ky;

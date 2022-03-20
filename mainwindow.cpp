@@ -8,7 +8,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QObject::connect(&timer, &QTimer::timeout,this, &MainWindow::onTimer);
     timer.setSingleShot(false);
-    timer.start(4000);
+    timer.start(1000);
+
+    QObject::connect(&timer2, &QTimer::timeout,this, &MainWindow::onTimer2);
+    timer2.setSingleShot(false);
+    timer2.start(5);
 }
 
 MainWindow::~MainWindow()
@@ -26,24 +30,14 @@ void MainWindow::paintEvent(QPaintEvent *event)
     for (auto sp:balls) {
         sp->draw(&ptr);
     }
+
+    ptr.setPen(Qt::white);
+    ptr.setBrush(QBrush(QColor(Qt::red)));
+
+    basket->draw(&ptr);
+
 }
 
-void MainWindow::on_actionAdd_triggered()
-{
-    balls.append(std::shared_ptr<Ball>(new Ball(this)));
-}
-
-void MainWindow::on_actionRemove_triggered()
-{
-    balls.removeFirst();
-    update();
-}
-
-void MainWindow::on_actionClear_triggered()
-{
-    balls.clear();
-    update();
-}
 
 void MainWindow::newBall()
 {
@@ -64,4 +58,9 @@ void MainWindow::clearBalls()
 
 void MainWindow::onTimer(){
     newBall();
+}
+
+void MainWindow::onTimer2(){
+    if(!balls.isEmpty() && balls.first()->isOut == true)
+        removeBall();
 }
