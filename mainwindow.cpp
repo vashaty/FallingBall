@@ -38,7 +38,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 }
 
-
 void MainWindow::newBall()
 {
     balls.append(std::shared_ptr<Ball>(new Ball(this,basket)));
@@ -64,9 +63,9 @@ void MainWindow::onTimer2(){
     for (const std::shared_ptr<Ball> &sp:balls) {
         if(sp->catched){
             ui->label_2->setText(QString::number(ui->label_2->text().toInt()+1));
-            if((ui->label_2->text().toInt() % 2) == 0 && ui->label_2->text().toInt() != 0){
-                if(spawnInterval>500){
-                    spawnInterval /= 2;
+            if((ui->label_2->text().toInt() % 5) == 0 && ui->label_2->text().toInt() != 0){
+                if(spawnInterval>1000){
+                    spawnInterval /= 1.5;
                     timer.start(spawnInterval);
                 }
             }

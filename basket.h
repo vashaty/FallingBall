@@ -12,8 +12,15 @@ class Basket : public QTimer
 public:
     Basket(QWidget *parent);
     void draw(QPainter *painter);
+
+    /*!
+     * Promenne, ktere drzi souradnice, sirku a vysku kose
+     */
     int x, y, width, height;
-    void keyReleaseEvent(QKeyEvent *e);
+
+    /*!
+     * Vzdalenost posunu kose
+     */
     int moveStep = 20;
 
 protected:

@@ -7,7 +7,7 @@ Ball::Ball(QWidget *parent, Basket *basket):parent(parent)
     x = rect.width()/2;
     y = 0;
 
-    kx = rand()%5;
+    kx = rand()%10-5;
     ky = 1;
     start(10);
 
