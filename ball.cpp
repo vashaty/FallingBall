@@ -9,9 +9,7 @@ Ball::Ball(QWidget *parent, Basket *basket):parent(parent)
 
     kx = rand()%5;
     ky = 1;
-
     start(10);
-
 
 }
 
@@ -19,11 +17,6 @@ void Ball::draw(QPainter *painter)
 {
     painter->drawEllipse(x,y,20,20);
 }
-
-//void Ball::setBasket(Basket *basket)
-//{
-//    this->basket = basket;
-//}
 
 void Ball::timerEvent(QTimerEvent *e)
 {

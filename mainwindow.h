@@ -7,6 +7,7 @@
 #include <memory>
 #include <QTimer>
 #include "basket.h"
+#include <QKeyEvent>
 
 
 QT_BEGIN_NAMESPACE
@@ -20,6 +21,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void keyReleaseEvent(QKeyEvent *e) override;
 
 protected:
     void paintEvent(QPaintEvent *event) override;
@@ -37,8 +39,8 @@ private:
     int spawnInterval = 4000;
     void newBall();
 
-    void removeBall();
+//    void removeBall();
 
-    void clearBalls();
+//    void clearBalls();
 };
 #endif // MAINWINDOW_H

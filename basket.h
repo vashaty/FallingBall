@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QWidget>
 #include <QPainter>
+#include <QKeyEvent>
 
 
 class Basket : public QTimer
@@ -11,12 +12,13 @@ class Basket : public QTimer
 public:
     Basket(QWidget *parent);
     void draw(QPainter *painter);
-        int x, y, kx, ky,width, height;
+    int x, y, width, height;
+    void keyReleaseEvent(QKeyEvent *e);
+    int moveStep = 20;
 
 protected:
-    virtual void timerEvent(QTimerEvent *e) override;
-
     QWidget *parent;
+
 
 };
 
