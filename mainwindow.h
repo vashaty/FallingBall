@@ -34,6 +34,7 @@ private:
     Ui::MainWindow *ui;
     QList<std::shared_ptr<Ball>> balls;
     Basket *basket = new Basket(this);
+    int spawnInterval = 4000;
     void newBall();
 
     void removeBall();

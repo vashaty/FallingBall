@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QObject::connect(&timer, &QTimer::timeout,this, &MainWindow::onTimer);
     timer.setSingleShot(false);
-    timer.start(1000);
+    timer.start(spawnInterval);
 
     QObject::connect(&timer2, &QTimer::timeout,this, &MainWindow::onTimer2);
     timer2.setSingleShot(false);
@@ -67,5 +67,10 @@ void MainWindow::onTimer2(){
         removeBall();
 
         ui->label_2->setText(QString::number(ui->label_2->text().toInt()+1));
+        if((ui->label_2->text().toInt() % 10) == 0 && ui->label_2->text().toInt() != 0){
+            spawnInterval /= 2;
+            timer.start(spawnInterval);
+        }
     }
+
 }
