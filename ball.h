@@ -9,9 +9,9 @@
 class Ball : public QTimer
 {
 public:
-    Ball(QWidget *parent);
+    Ball(QWidget *parent, Basket *basket);
     void draw(QPainter *painter);
-    void setBasket(Basket *basket);
+//    void setBasket(Basket *basket);
     int x, y, kx, ky;
     bool isOut = false;
     bool catched = false;

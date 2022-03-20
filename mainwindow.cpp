@@ -41,7 +41,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 void MainWindow::newBall()
 {
-    balls.append(std::shared_ptr<Ball>(new Ball(this)));
+    balls.append(std::shared_ptr<Ball>(new Ball(this,basket)));
 }
 
 void MainWindow::removeBall()
@@ -63,4 +63,9 @@ void MainWindow::onTimer(){
 void MainWindow::onTimer2(){
     if(!balls.isEmpty() && balls.first()->isOut == true)
         removeBall();
+    if(!balls.isEmpty() && balls.first()->catched == true){
+        removeBall();
+
+        ui->label_2->setText(QString::number(ui->label_2->text().toInt()+1));
+    }
 }
