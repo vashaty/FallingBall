@@ -6,7 +6,7 @@ Ball::Ball(QWidget *parent):parent(parent)
     x = rect.width()/2;
     y = 0;
 
-    kx = 1;
+    kx = rand()%5;
     ky = 1;
 
     start(10);
@@ -26,7 +26,7 @@ void Ball::timerEvent(QTimerEvent *e)
 
 //    if(y<0 || y > rect.height()) ky *= -1;
 
-//    x+=kx;
+    x+=kx;
     y+=ky;
 
     parent->update();

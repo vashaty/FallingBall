@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QObject::connect(&timer, &QTimer::timeout,this, &MainWindow::onTimer);
     timer.setSingleShot(false);
-    timer.start(1000);
+    timer.start(4000);
 }
 
 MainWindow::~MainWindow()
